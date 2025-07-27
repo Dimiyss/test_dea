@@ -1,0 +1,19 @@
+[project]
+name = "etl-pipeline"
+version = "0.1.0"
+description = "ETL Pipeline"
+authors = [
+    {name = "arhip",email = "a.arkhypov@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=2.2.2",
+    "SQLAlchemy==2.0.41",
+    "click>=8.1.8"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

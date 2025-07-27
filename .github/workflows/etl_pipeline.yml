@@ -1,0 +1,26 @@
+name: ETL Pipeline Runner
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run_etk_pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies with Poetry
+        run: |
+          pip install poetry
+          poetry install --no-interaction --no-root
+
+      - name: Run ETL script
+        run: poetry run python src/etl_pipeline/main.py src/etl_pipeline/input/trades.csv
