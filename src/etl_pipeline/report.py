@@ -24,5 +24,5 @@ class Reporter:
         if n_largest_clients.empty:
             print("No data available for the report.")
             return False
-        n_largest_clients.to_csv("src/etl_pipeline/output/top_clients.xlsx", index=False)
+        n_largest_clients.to_csv("src/etl_pipeline/output/top_clients.csv", index=False)
         return True

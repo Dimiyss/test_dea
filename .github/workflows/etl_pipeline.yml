@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  run_etk_pipeline:
+  run_etl_pipeline:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
