@@ -23,4 +23,4 @@ jobs:
           poetry install --no-interaction --no-root
 
       - name: Run ETL script
-        run: poetry run python etl_pipeline.main input/trades.csv
+        run: PYTHONPATH=src poetry run python src/etl_pipeline/main.py src/etl_pipeline/input/trades.csv

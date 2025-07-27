@@ -2,6 +2,7 @@ from numpy import require
 from etl_pipeline.extractor import Extractor
 from etl_pipeline.transformer import Transformer
 from etl_pipeline.loader import Loader
+from etl_pipeline.report import Reporter
 import click
 
 @click.command()
@@ -41,6 +42,10 @@ def main(
     if not save_status:
         print("Failed to save the DataFrame to the database.")
         raise Exception("DataFrame saving failed.")
+    if not Reporter(transformed_df).generate_report():
+        print("Failed to generate the report.")
+        raise Exception("Report generation failed.")
+
     print("ETL Pipeline completed successfully.")
 
 if __name__ == "__main__":
